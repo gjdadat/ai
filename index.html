@@ -1,0 +1,194 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans);background:transparent;padding:16px 0 24px}
+
+.ml-title-wrap{text-align:center;margin-bottom:18px}
+.ml-title{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.ml-title-sub{font-size:13px;color:var(--color-text-secondary)}
+
+.arrow-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:6px}
+.arrow-item{display:flex;flex-direction:column;align-items:center;gap:4px}
+.arrow-line{width:2px;height:24px;background:var(--color-border-secondary)}
+.arrow-label{font-size:11px;color:var(--color-text-tertiary);font-weight:500}
+
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+
+.type-card{border-radius:var(--border-radius-lg);overflow:hidden}
+.card-green{border:2px solid #3B6D11}
+.card-blue{border:2px solid #185FA5}
+.card-amber{border:2px solid #854F0B}
+
+.type-head{padding:12px 14px 10px}
+.head-green{background:#EAF3DE}
+.head-blue{background:#E6F1FB}
+.head-amber{background:#FAEEDA}
+
+.type-head-top{display:flex;align-items:center;gap:8px;margin-bottom:3px}
+.type-icon{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.icon-green{background:#3B6D11}
+.icon-blue{background:#185FA5}
+.icon-amber{background:#EF9F27}
+
+.type-name{font-size:14px;font-weight:500}
+.name-green{color:#173404}
+.name-blue{color:#042C53}
+.name-amber{color:#412402}
+
+.type-key{font-size:11px;margin-top:2px}
+.key-green{color:#3B6D11}
+.key-blue{color:#185FA5}
+.key-amber{color:#633806}
+
+.type-body{background:var(--color-background-primary);padding:8px}
+.sub-card{border-radius:8px;border:0.5px solid var(--color-border-tertiary);margin-bottom:6px;cursor:pointer;overflow:hidden;transition:opacity .15s}
+.sub-card:last-child{margin-bottom:0}
+.sub-card:hover{opacity:.8}
+.sub-head{padding:6px 10px 5px;font-size:12px;font-weight:500}
+.sh-green{background:#EAF3DE;color:#3B6D11}
+.sh-blue{background:#E6F1FB;color:#185FA5}
+.sh-amber{background:#FAEEDA;color:#633806}
+.sub-body{padding:5px 10px 7px;font-size:11px;color:var(--color-text-secondary);line-height:1.4;background:var(--color-background-primary)}
+.sub-ex{color:var(--color-text-tertiary);margin-top:2px}
+
+.hint{text-align:center;font-size:11px;color:var(--color-text-tertiary);padding-top:2px;margin-bottom:16px}
+
+.modal-overlay{display:none;padding:20px 0}
+.modal-overlay.open{display:block}
+.modal-box{background:var(--color-background-primary);border-radius:var(--border-radius-lg);border:0.5px solid var(--color-border-tertiary);padding:20px 22px;position:relative;max-width:480px;margin:0 auto}
+.modal-x{position:absolute;top:12px;right:14px;width:32px;height:32px;border-radius:var(--border-radius-md);background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);font-size:14px;cursor:pointer;color:var(--color-text-secondary);display:flex;align-items:center;justify-content:center;line-height:1}
+.modal-title{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px;padding-right:40px}
+.modal-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:12px}
+.modal-ex{font-size:13px;color:var(--color-text-secondary);padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);display:flex;gap:8px;align-items:flex-start}
+.modal-ex:last-child{border-bottom:none}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.dg{background:#639922}.db{background:#185FA5}.da{background:#BA7517}
+
+.back-btn{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--color-text-secondary);cursor:pointer;border:none;background:none;padding:0;margin-bottom:12px}
+.back-btn:hover{color:var(--color-text-primary)}
+</style>
+
+<div id="main-content">
+  <div class="ml-title-wrap">
+    <div class="ml-title">기계 학습 (Machine Learning)</div>
+    <div class="ml-title-sub">데이터를 보고 스스로 규칙을 익히는 AI 학습 방법 — 세 가지 유형이 있어요</div>
+  </div>
+
+  <div class="arrow-row">
+    <div class="arrow-item">
+      <div class="arrow-label">지도 학습</div>
+      <div class="arrow-line"></div>
+      <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #3B6D11"></div>
+    </div>
+    <div class="arrow-item">
+      <div class="arrow-label">비지도 학습</div>
+      <div class="arrow-line"></div>
+      <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #185FA5"></div>
+    </div>
+    <div class="arrow-item">
+      <div class="arrow-label">강화 학습</div>
+      <div class="arrow-line"></div>
+      <div style="width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #854F0B"></div>
+    </div>
+  </div>
+
+  <div class="three-col">
+    <div class="type-card card-green">
+      <div class="type-head head-green">
+        <div class="type-head-top">
+          <div class="type-icon icon-green"><i class="ti ti-check" style="font-size:14px;color:#fff" aria-hidden="true"></i></div>
+          <div class="type-name name-green">지도 학습</div>
+        </div>
+        <div class="type-key key-green">정답(라벨)을 알려주며 학습</div>
+      </div>
+      <div class="type-body">
+        <div class="sub-card" onclick="openModal('classification')">
+          <div class="sub-head sh-green">분류</div>
+          <div class="sub-body">종류를 구분<div class="sub-ex">예: 스팸 vs 정상 메일</div></div>
+        </div>
+        <div class="sub-card" onclick="openModal('regression')">
+          <div class="sub-head sh-green">회귀</div>
+          <div class="sub-body">연속 숫자 예측<div class="sub-ex">예: 시험 점수, 집값 예측</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-card card-blue">
+      <div class="type-head head-blue">
+        <div class="type-head-top">
+          <div class="type-icon icon-blue"><i class="ti ti-topology-star" style="font-size:14px;color:#fff" aria-hidden="true"></i></div>
+          <div class="type-name name-blue">비지도 학습</div>
+        </div>
+        <div class="type-key key-blue">정답 없이 패턴을 스스로 찾기</div>
+      </div>
+      <div class="type-body">
+        <div class="sub-card" onclick="openModal('clustering')">
+          <div class="sub-head sh-blue">군집화</div>
+          <div class="sub-body">비슷한 것끼리 묶기<div class="sub-ex">예: 고객 성향별 그룹화</div></div>
+        </div>
+        <div class="sub-card" onclick="openModal('association')">
+          <div class="sub-head sh-blue">연관 규칙</div>
+          <div class="sub-body">숨겨진 관계 찾기<div class="sub-ex">예: 빵 → 우유 패턴</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-card card-amber">
+      <div class="type-head head-amber">
+        <div class="type-head-top">
+          <div class="type-icon icon-amber"><i class="ti ti-trophy" style="font-size:14px;color:#fff" aria-hidden="true"></i></div>
+          <div class="type-name name-amber">강화 학습</div>
+        </div>
+        <div class="type-key key-amber">보상·벌점으로 스스로 전략 학습</div>
+      </div>
+      <div class="type-body">
+        <div class="sub-card" onclick="openModal('rl_reward')">
+          <div class="sub-head sh-amber">행동과 보상</div>
+          <div class="sub-body">좋은 행동 +보상, 나쁜 행동 -벌점<div class="sub-ex">예: 게임 점수로 학습</div></div>
+        </div>
+        <div class="sub-card" onclick="openModal('rl_case')">
+          <div class="sub-head sh-amber">실제 사례</div>
+          <div class="sub-body">반복 시도로 최적 전략 발견<div class="sub-ex">예: AlphaGo, 자율주행</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hint">카드를 탭하면 중학생 눈높이 예시를 볼 수 있어요</div>
+</div>
+
+<div class="modal-overlay" id="modal-overlay">
+  <button class="back-btn" onclick="closeModal()">
+    <i class="ti ti-arrow-left" style="font-size:14px" aria-hidden="true"></i> 돌아가기
+  </button>
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()" aria-label="닫기">✕</button>
+    <div class="modal-title" id="m-title"></div>
+    <div class="modal-desc" id="m-desc"></div>
+    <div id="m-exs"></div>
+  </div>
+</div>
+
+<script>
+const D={
+  classification:{title:'분류 (Classification)',desc:'미리 정해진 정답(라벨)을 학습해서 새 데이터가 어느 종류인지 구분해요. "맞다/아니다" 또는 여러 카테고리 중 하나를 고르는 문제예요.',dot:'dg',examples:['이메일이 스팸인가? 정상인가?','사진 속 동물이 고양이인가? 강아지인가?','이 학생의 등급은 A, B, C 중 무엇인가?','메시지의 감정이 긍정인가? 부정인가?','X선 사진에 이상이 있는가? 없는가?']},
+  regression:{title:'회귀 (Regression)',desc:'숫자로 된 정답을 학습해서 연속적인 값을 예측해요. 딱 떨어지는 범주가 아니라 "얼마일까?"를 맞히는 문제예요.',dot:'dg',examples:['공부 시간에 따른 시험 점수 예측','아파트 크기·위치로 집값 예측','운동량에 따른 칼로리 소모 예측','기온·습도로 내일 최고 기온 예측','판매량 데이터로 다음 달 재고 예측']},
+  clustering:{title:'군집화 (Clustering)',desc:'정답 없이 데이터 사이의 유사도를 계산해서 비슷한 것끼리 그룹을 만들어요. 몇 개의 그룹으로 나눌지는 사람이 결정하기도 해요.',dot:'db',examples:['취향이 비슷한 고객끼리 자동으로 그룹화','비슷한 뉴스 기사끼리 모아서 분류','유전자가 비슷한 생물끼리 묶기','비슷한 문제 유형끼리 시험 문제 분류','SNS에서 관심사가 비슷한 사용자 그룹화']},
+  association:{title:'연관 규칙 (Association)',desc:'"A를 사면 B도 사더라"처럼 데이터 안에 숨어 있는 관계를 찾아내요. 온라인 쇼핑 추천에 많이 쓰여요.',dot:'db',examples:['빵을 사면 우유도 자주 산다','수학 좋아하면 프로그래밍도 좋아하는 경향','이 책 산 사람은 저 책도 샀어요 (서점 추천)','기저귀 살 때 맥주도 함께 사는 패턴','특정 게임 유저가 자주 함께 사는 아이템']},
+  rl_reward:{title:'행동과 보상',desc:'정답을 직접 알려주지 않아요. 대신 "그 행동이 좋았나요, 나빴나요?"를 점수로 알려줘요. AI는 더 높은 보상을 받는 방향으로 행동을 바꿔가요.',dot:'da',examples:['게임에서 적을 쓰러뜨리면 +점수, 죽으면 -점수','미로에서 출구에 가까워질수록 +보상','주식 거래에서 수익 나면 +, 손해 나면 -','로봇이 물건을 집으면 +보상, 떨어뜨리면 -','자율주행 차가 차선을 잘 지키면 +보상']},
+  rl_case:{title:'실제 활용 사례',desc:'강화 학습은 정답을 미리 알기 어렵거나, 최적의 전략을 스스로 찾아야 하는 분야에서 특히 강력해요.',dot:'da',examples:['AlphaGo — 인간 바둑 챔피언을 꺾은 AI','자율주행 — 교통 상황에서 최적 주행 전략','게임 AI — 스타크래프트, 체스, 아타리 게임','로봇 제어 — 두 발로 걷기, 물건 집어 나르기','추천 시스템 — 클릭률을 보상으로 삼아 개선']}
+};
+
+function openModal(k){
+  const d=D[k];
+  document.getElementById('m-title').textContent=d.title;
+  document.getElementById('m-desc').textContent=d.desc;
+  document.getElementById('m-exs').innerHTML=d.examples.map(e=>`<div class="modal-ex"><span class="dot ${d.dot}"></span><span>${e}</span></div>`).join('');
+  document.getElementById('main-content').style.display='none';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.getElementById('main-content').style.display='block';
+}
+</script>
